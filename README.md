@@ -12,6 +12,8 @@ A continuación se presenta el acceso único al entorno unificado y desplegado e
 
 * **Deploy Oficial (Vercel):** [https://tecnicatura-pf02.vercel.app/]
 
+* **Repositorio Github:** [https://github.com/SpectermanLuis/Tecnicatura_pf02.git]
+
 ---
 ## 📂 Estructura de Directorios del Proyecto
 
