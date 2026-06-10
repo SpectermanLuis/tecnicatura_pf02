@@ -77,9 +77,9 @@ Actúa como un Ingeniero de Software Senior y Diseñador UX/UI Experto. Tu objet
 ---
 
 ## 📈 Conclusiones de la Práctica
-La implementación de una única instrucción estructurada de alta precisión (Megaprompt) evidenció el potencial actual de las herramientas generativas para actuar como asistentes autónomos de software frontend. Ambos agentes lograron interpretar las restricciones de diseño, maquetar con componentes modernos mediante Tailwind CSS y omitir las respuestas conversacionales para no romper el flujo de desarrollo.
+#### La implementación de una única instrucción estructurada de alta precisión (Megaprompt) evidenció el potencial actual de las herramientas generativas para actuar como asistentes autónomos de software frontend. Ambos agentes lograron interpretar las restricciones de diseño, maquetar con componentes modernos mediante Tailwind CSS y omitir las respuestas conversacionales para no romper el flujo de desarrollo.
 
-Como conclusión técnica, se observa que Cursor ofrece una ventaja cualitativa en el refinamiento estético minucioso y la fluidez de los efectos visuales complejos debido a su entorno especializado de desarrollo. Por otro lado, Antigravity demostró ser una alternativa sumamente eficiente para flujos de trabajo rápidos, destacando por su velocidad de respuesta y por ir "directo al grano" en la entrega del código limpio, cumpliendo con precisión matemática la regla de no incorporar explicaciones redundantes.
+#### Como conclusión técnica, se observa que Cursor ofrece una ventaja cualitativa en el refinamiento estético minucioso y la fluidez de los efectos visuales complejos debido a su entorno especializado de desarrollo. Por otro lado, Antigravity demostró ser una alternativa sumamente eficiente para flujos de trabajo rápidos, destacando por su velocidad de respuesta y por ir "directo al grano" en la entrega del código limpio, cumpliendo con precisión matemática la regla de no incorporar explicaciones redundantes.
 ---
 
 ## 📸 Evidencia Visual (Capturas de Pantalla)
@@ -89,10 +89,20 @@ Como conclusión técnica, se observa que Cursor ofrece una ventaja cualitativa 
 
 ### Interfaz del Sitio - Agente 1 (Cursor)
 ![Captura Agente 1](./AGENTE-1/a01.png)
-*Vista general del Hero Section y la barra de navegación superior.*
 
+![Captura Agente 1](./AGENTE-1/a02.png)
+
+![Captura Agente 1](./AGENTE-1/a03.png)
+
+![Captura Agente 1](./AGENTE-1/a04.png)
 
 
 ### Interfaz del Sitio - Agente 2 (Antigravity)
-![Captura Agente 2](./AGENTE2/captura2.png)
-*Vista de la cuadrícula de productos históricos y testimonios de usuarios.*
+
+![Captura Agente 2](./AGENTE-2/b01.png)
+
+![Captura Agente 2](./AGENTE-2/b02.png)
+
+![Captura Agente 2](./AGENTE-2/b03.png)
+
+![Captura Agente 2](./AGENTE-2/b04.png)
