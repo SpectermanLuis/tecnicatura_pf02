@@ -10,7 +10,7 @@
 ## 🚀 Enlace al Proyecto Desplegado
 A continuación se presenta el acceso único al entorno unificado y desplegado en la plataforma Vercel. La portada raíz funciona como un nodo central de distribución que enlaza de manera organizada al texto plano del prompt y a las dos soluciones independientes:
 
-* **Deploy Oficial (Vercel):** [PEGAR ACÁ EL LINK DE VERCEL CUANDO LO DESPLIEGUES]
+* **Deploy Oficial (Vercel):** [https://tecnicatura-pf02.vercel.app/]
 
 ---
 ## 📂 Estructura de Directorios del Proyecto
@@ -27,17 +27,19 @@ tp-prompt-engineering/
 ├── agente-1/          # Espacio de desarrollo autónomo del Asistente 1 (Cursor)
 │   ├── index.html     # Landing Page de Chronos generada por Cursor
 │   └── captura1.png   # Captura de pantalla de la interfaz de Agente 1
-└── agente-2/          # Espacio de desarrollo autónomo del Asistente 2 (ChatGPT)
-    ├── index.html     # Landing Page de Chronos generada por ChatGPT
+└── agente-2/          # Espacio de desarrollo autónomo del Asistente 2 (Antigravity)
+    ├── index.html     # Landing Page de Chronos generada por Antigravity
     └── captura2.png   # Captura de pantalla de la interfaz de Agente 2
 ```
 ---
 
+# Temática seleccionada: "Chronos" – Agencia de Turismo Temporal
+
+
 ## 📝 Estructura del Prompt Inicial (Alta Precisión)
 Este prompt fue diseñado bajo los lineamientos de las guías de ingeniería de prompts de OpenAI y Anthropic. Estructurado mediante delimitadores temáticos, definición estricta de un rol profesional senior, restricciones semánticas para evitar bloques conversacionales redundantes y directivas de diseño UI/UX responsivas.
 
-### Temática seleccionada: "Chronos" – Agencia de Turismo Temporal
-
+````
 ### ROL Y CONTEXTO
 Actúa como un Ingeniero de Software Senior y Diseñador UX/UI Experto. Tu objetivo es crear de forma completamente autónoma una Landing Page profesional, moderna, responsiva y estéticamente impactante para "Chronos", una agencia de turismo premium especializada en Viajes en el Tiempo.
 
@@ -59,34 +61,38 @@ Actúa como un Ingeniero de Software Senior y Diseñador UX/UI Experto. Tu objet
 5. Testimonios: Una fila o grilla con 2 testimonios redactados de clientes que ya viajaron al pasado, detallando su experiencia de forma realista dentro del contexto de la temática.
 6. Formulario de Contacto: Un formulario estéticamente integrado con campos para Nombre, Email, Destino Temporal de Interés, un área de mensaje y un botón de envío con diseño destacado (maquetación visual, sin lógica backend).
 7. Pie de página (Footer): Enlaces secundarios, derechos de autor simulados para el año actual y botones limpios para redes sociales ficticias utilizando iconos.
-
+````
 ---
 
 ## 🤖 Análisis Comparativo de los Agentes de IA
 
-### Agente 1: Cursor (Modelo integrado de IA)
+### Agente 1: Cursor (Modelo Composer 2.5 Fast)
 * **Resultado Estético y UI/UX:** Logró un acabado visual premium sobresaliente. La paleta de colores oscuros profundos con acentos en violeta neón y dorado le otorga una identidad visual cibernética muy marcada. La barra de navegación cuenta con un efecto de desenfoque perfectamente integrado, y la cuadrícula de servicios utiliza sombras y bordes sutiles que aportan profundidad.
 * **Comportamiento Autónomo:** Cumplió de forma estricta con las especificaciones del prompt. El modelo ignoró explicaciones complementarias y entregó el código HTML embebido de manera directa. La maquetación responsiva se adaptó correctamente gracias a las directivas nativas de Tailwind CSS.
 
-### Agente 2: ChatGPT (Motor OpenAI entrenado en código)
-* **Resultado Estético y UI/UX:** Presentó una estructura sumamente limpia, con un diseño más enfocado en el minimalismo corporativo y la legibilidad. Si bien la paleta respetó los contrastes oscuros solicitados, los componentes interactivos (como los efectos hover de las tarjetas) resultaron más tradicionales en comparación con el dinamismo visual que propuso Cursor.
-* **Comportamiento Autónomo:** Demostró un nivel óptimo de comprensión del lenguaje natural en español. Redactó de forma creativa los títulos de los tours históricos y los testimonios de los usuarios. Respetó el bloqueo de texto introductorio, arrojando únicamente el fragmento de código estructurado.
+### Agente 2: Antigravity (Motor Gemini 3.5 Flash )
+* **Resultado Estético y UI/UX:** Presentó una propuesta frontend sumamente ágil y limpia, enfocada en un diseño estructural directo. Si bien respetó la paleta de colores oscuros de la temática "Chronos", priorizó una maquetación más ligera y funcional. Los componentes interactivos y los efectos hover resultaron efectivos, aunque con resoluciones visuales más estandarizadas en comparación con el ecosistema de Cursor.
+* **Comportamiento Autónomo:** Mostró una excelente interpretación de las restricciones de salida ("Output Restrictions"). Al ser un agente enfocado en la ejecución directa y con "menos vueltas" conversacionales, procesó el Megaprompt de forma óptima, absteniéndose de añadir introducciones o textos de relleno decorativos fuera del archivo HTML5 único en español.
 
 ---
 
 ## 📈 Conclusiones de la Práctica
 La implementación de una única instrucción estructurada de alta precisión (Megaprompt) evidenció el potencial actual de las herramientas generativas para actuar como asistentes autónomos de software frontend. Ambos agentes lograron interpretar las restricciones de diseño, maquetar con componentes modernos mediante Tailwind CSS y omitir las respuestas conversacionales para no romper el flujo de desarrollo.
 
-Se observa que Cursor ofrece una ventaja cualitativa en el refinamiento visual y la interacción de la interfaz de usuario gracias a su integración nativa en el entorno de desarrollo, mientras que el modelo general de ChatGPT sobresale en la consistencia de la redacción creativa y el cumplimiento directo de las reglas semánticas del prompt.
-
+Como conclusión técnica, se observa que Cursor ofrece una ventaja cualitativa en el refinamiento estético minucioso y la fluidez de los efectos visuales complejos debido a su entorno especializado de desarrollo. Por otro lado, Antigravity demostró ser una alternativa sumamente eficiente para flujos de trabajo rápidos, destacando por su velocidad de respuesta y por ir "directo al grano" en la entrega del código limpio, cumpliendo con precisión matemática la regla de no incorporar explicaciones redundantes.
 ---
 
 ## 📸 Evidencia Visual (Capturas de Pantalla)
 
+### Pantalla Principal Integradora 
+![Captura Principal](01.png)
+
 ### Interfaz del Sitio - Agente 1 (Cursor)
-![Captura Agente 1](./agente-1/captura1.png)
+![Captura Agente 1](./AGENTE-1/a01.png)
 *Vista general del Hero Section y la barra de navegación superior.*
 
-### Interfaz del Sitio - Agente 2 (ChatGPT)
-![Captura Agente 2](./agente-2/captura2.png)
+
+
+### Interfaz del Sitio - Agente 2 (Antigravity)
+![Captura Agente 2](./AGENTE2/captura2.png)
 *Vista de la cuadrícula de productos históricos y testimonios de usuarios.*
