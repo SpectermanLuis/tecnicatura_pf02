@@ -23,15 +23,22 @@ A continuación se detalla la organización del repositorio jerárquico. La estr
 ```text
 tp-prompt-engineering/
 ├── index.html         # Portada principal (Interfaz de navegación y distribución)
+├── 01.png             # Captura de pantalla portada  principal
 ├── README.md          # Documentación técnica obligatoria (este archivo)
 ├── prompt/            # Carpeta contenedora del recurso de instrucción
 │   └── prompt.txt     # Archivo de texto plano con el Megaprompt exacto utilizado
 ├── agente-1/          # Espacio de desarrollo autónomo del Asistente 1 (Cursor)
 │   ├── index.html     # Landing Page de Chronos generada por Cursor
-│   └── captura1.png   # Captura de pantalla de la interfaz de Agente 1
+│   └── a01.png        # Captura de pantalla de la interfaz de Agente 1
+│   └── a02.png        # Captura de pantalla de la interfaz de Agente 1
+│   └── a03.png        # Captura de pantalla de la interfaz de Agente 1
+│   └── a04.png        # Captura de pantalla de la interfaz de Agente 1
 └── agente-2/          # Espacio de desarrollo autónomo del Asistente 2 (Antigravity)
     ├── index.html     # Landing Page de Chronos generada por Antigravity
-    └── captura2.png   # Captura de pantalla de la interfaz de Agente 2
+    └── b01.png        # Captura de pantalla de la interfaz de Agente 2
+    └── b02.png        # Captura de pantalla de la interfaz de Agente 2
+    └── b03.png        # Captura de pantalla de la interfaz de Agente 2
+    └── b04.png        # Captura de pantalla de la interfaz de Agente 2    
 ```
 ---
 
