@@ -1,10 +1,10 @@
 # Práctica Formativa Obligatoria 2: Prompt Engineering en Agentes de IA
 
 ## Datos del Estudiante
-* **Nombre y Apellido:** SPECTERMAN LUIS OMAR
-* **Asignatura:** Desarrollo Web Frontend
+* **Nombre y Apellido:** SPECTERMAN LUIS OMAR     
+* **Asignatura:** Desarrollo Web Frontend 1C 2026
 * **Comisión:** Comisión Lunes
-* **Fecha de Entrega:** 26/06/2026
+* **Fecha de Entrega:** 10/06/2026
 ---
 
 ## 🚀 Enlace al Proyecto Desplegado
