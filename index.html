@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PFO 2 - Prompt Engineering en Agentes de IA</title>
+    <!-- Usamos Tailwind para que tu portada también se vea genial -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-zinc-950 text-white min-h-screen flex flex-col items-center justify-center p-6">
+
+    <div class="max-w-2xl text-center mb-10">
+        <span class="text-xs font-semibold tracking-widest text-amber-500 uppercase bg-amber-500/10 px-3 py-1 rounded-full">Práctica Formativa Obligatoria 2</span>
+        <h1 class="text-4xl font-extrabold mt-4 mb-2 tracking-tight">Prompt Engineering en Agentes de IA</h1>
+        <p class="text-zinc-400 text-lg">Comparativa de desarrollo autónomo para la Landing Page: <strong class="text-white">Chronos (Turismo Temporal)</strong></p>
+    </div>
+
+    <!-- Contenedor de Accesos Directos -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 w-full max-w-4xl">
+        
+        <!-- LINK 1: El Prompt -->
+        <a href="PROMPT/prompt.txt" target="_blank" class="flex flex-col justify-between p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-amber-500/50 transition-all duration-300 group">
+            <div>
+                <div class="w-10 h-10 rounded-lg bg-amber-500/10 flex items-center justify-center mb-4 text-amber-500 font-bold">📄</div>
+                <h2 class="text-xl font-bold mb-2 group-hover:text-amber-400 transition-colors">Prompt Utilizado</h2>
+                <p class="text-zinc-400 text-sm">Visualiza las instrucciones de alta precisión y la estructura basada en guías oficiales.</p>
+            </div>
+            <span class="mt-6 text-xs text-amber-500 font-semibold flex items-center gap-1">Ver texto plano &rarr;</span>
+        </a>
+
+        <!-- LINK 2: Agente 1 (Cursor) -->
+        <a href="agente-1/index.html" class="flex flex-col justify-between p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-blue-500/50 transition-all duration-300 group">
+            <div>
+                <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center mb-4 text-blue-400 font-bold">🤖</div>
+                <h2 class="text-xl font-bold mb-2 group-hover:text-blue-400 transition-colors">Agente 1: Cursor</h2>
+                <p class="text-zinc-400 text-sm">Landing page generada de forma 100% autónoma por el entorno Cursor (Modelo: Claude 3.5 Sonnet / GPT-4o).</p>
+            </div>
+            <span class="mt-6 text-xs text-blue-400 font-semibold flex items-center gap-1">Abrir sitio web &rarr;</span>
+        </a>
+
+        <!-- LINK 3: Agente 2 (Antigravity) -->
+        <a href="agente-2/index.html" class="flex flex-col justify-between p-6 bg-zinc-900 border border-zinc-800 rounded-xl hover:border-purple-500/50 transition-all duration-300 group">
+            <div>
+                <div class="w-10 h-10 rounded-lg bg-purple-500/10 flex items-center justify-center mb-4 text-purple-400 font-bold">💻</div>
+                <h2 class="text-xl font-bold mb-2 group-hover:text-purple-400 transition-colors">Agente 2: Antigravity</h2>
+                <p class="text-zinc-400 text-sm">Landing page generada de forma 100% autónoma utilizando el modelo Gemini 3.5 Flash.</p>
+            </div>
+            <span class="mt-6 text-xs text-purple-400 font-semibold flex items-center gap-1">Abrir sitio web &rarr;</span>
+        </a>
+
+    </div>
+
+    <footer class="mt-16 text-zinc-600 text-xs tracking-wider">
+        PFO2 • DESARROLLO FRONTEND • INDIVIDUAL
+    </footer>
+
+</body>
+</html>

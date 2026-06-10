@@ -1,0 +1,21 @@
+### ROL Y CONTEXTO
+Actúa como un Ingeniero de Software Senior y Diseñador UX/UI Experto. Tu objetivo es crear de forma completamente autónoma una Landing Page profesional, moderna, responsiva y estéticamente impactante para "Chronos", una agencia de turismo premium especializada en Viajes en el Tiempo.
+
+### ESPECIFICACIONES TÉCNICAS
+- Tecnologías: Utiliza un único archivo HTML5 estructurado de forma limpia. Integra Tailwind CSS mediante su CDN oficial (<script src="https://cdn.tailwindcss.com"></script>) para garantizar un diseño visual de última generación.
+- Tipografía e Iconografía: Utiliza fuentes modernas de Google Fonts (como 'Space Grotesk' o 'Inter') y añade iconos visuales usando clases de SVG o FontAwesome/Heroicons embebidos.
+- Paleta de Colores: Estética "Luxury Cyber/Temporal". Usa fondos oscuros (slate-900 o zinc-950), texto claro, detalles en dorado/ámbar (para lo premium) y acentos en violeta o cian (para el toque de ciencia ficción).
+
+### RESTRICCIONES ESTRICTAS
+- Entrega ÚNICAMENTE el código fuente completo dentro de un bloque de código. NO incluyas introducciones, saludos, ni explicaciones de cómo usarlo antes o después del código.
+- Todos los textos, títulos y testimonios deben estar redactados en ESPAÑOL con un tono corporativo, sofisticado y sumamente convincente. Queda estrictamente prohibido usar "Lorem Ipsum".
+- Los botones de llamada a la acción (CTA) deben tener transiciones suaves (`transition-all duration-300`) y efectos hover avanzados (cambio de escala, brillo o cambio de color).
+
+### SECCIONES OBLIGATORIAS (Estructura vertical)
+1. Cabecera (Header): Barra de navegación superior fija (sticky) con efecto de desenfoque de fondo (backdrop-blur). Incluye un logotipo textual/isotipo y enlaces de navegación con efectos hover a las secciones.
+2. Hero Section: Título masivo y persuasivo sobre viajar en el tiempo (H1), un subtítulo que despierte el deseo de aventura, y un botón principal de llamada a la acción (CTA) que destaque fuertemente.
+3. Sobre Nosotros: Una sección elegante que explique brevemente el riguroso protocolo de seguridad temporal de "Chronos" y su trayectoria.
+4. Servicios principales (Tarjetas): Una cuadrícula (Grid de mínimo 3 columnas) con tarjetas individuales para los destinos/servicios destacados: "Tour por la Antigua Roma", "Paseo por el Renacimiento Italiano" y "Conciertos Históricos del Siglo XX". Cada tarjeta debe incluir un diseño limpio, título, descripción y precio ficticio.
+5. Testimonios: Una fila o grilla con 2 testimonios redactados de clientes que ya viajaron al pasado, detallando su experiencia de forma realista dentro del contexto de la temática.
+6. Formulario de Contacto: Un formulario estéticamente integrado con campos para Nombre, Email, Destino Temporal de Interés, un área de mensaje y un botón de envío con diseño destacado (maquetación visual, sin lógica backend).
+7. Pie de página (Footer): Enlaces secundarios, derechos de autor simulados para el año actual y botones limpios para redes sociales ficticias utilizando iconos.

@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chronos | Viajes en el Tiempo Premium</title>
+  
+  <!-- SEO -->
+  <meta name="description" content="Chronos es la primera agencia de turismo temporal premium. Viaja a la Antigua Roma, el Renacimiento o vive conciertos históricos en primera persona con total seguridad.">
+  <meta name="keywords" content="viaje en el tiempo, turismo temporal, agencia chronos, viajes premium, historia">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            space: ['Space Grotesk', 'sans-serif'],
+          },
+          colors: {
+            chrono: {
+              bg: '#030712', // slate-950
+              gold: '#D4AF37', // Oro premium
+              'gold-hover': '#F3E5AB', // Oro claro
+              violet: '#8B5CF6',
+              cyan: '#06B6D4',
+              dark: '#0B0F19',
+              card: '#111827', // slate-900
+            }
+          },
+          boxShadow: {
+            'glow-violet': '0 0 25px rgba(139, 92, 246, 0.25)',
+            'glow-gold': '0 0 25px rgba(212, 175, 55, 0.2)',
+            'glow-cyan': '0 0 25px rgba(6, 182, 212, 0.2)',
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Estilos personalizados para animaciones y fondos premium */
+    .temporal-grid {
+      background-image: 
+        linear-gradient(rgba(139, 92, 246, 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(139, 92, 246, 0.04) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+    
+    .radial-glow-violet {
+      background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.12), transparent 70%);
+    }
+    
+    .radial-glow-gold {
+      background: radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.08), transparent 70%);
+    }
+    
+    /* Efecto de borde degradado con glassmorphism */
+    .glass-card {
+      background: rgba(17, 24, 39, 0.7);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+    
+    .glass-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, rgba(212, 175, 55, 0.3), rgba(139, 92, 246, 0.3));
+      -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+    
+    .glass-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Barra de navegación flotante activa */
+    .nav-active {
+      color: #D4AF37;
+      text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+    }
+  </style>
+</head>
+<body class="bg-[#030712] text-slate-200 font-sans selection:bg-chrono-violet selection:text-white overflow-x-hidden antialiased">
+
+  <!-- Grid temporal y glows decorativos de fondo -->
+  <div class="fixed inset-0 temporal-grid pointer-events-none z-0"></div>
+  <div class="fixed top-[-10%] left-[-10%] w-[60vw] h-[60vw] radial-glow-violet pointer-events-none z-0"></div>
+  <div class="fixed bottom-[-10%] right-[-10%] w-[60vw] h-[60vw] radial-glow-gold pointer-events-none z-0"></div>
+  <div class="fixed top-[40%] left-[20%] w-[40vw] h-[40vw] radial-glow-gold pointer-events-none z-0 opacity-50"></div>
+
+  <!-- 1. HEADER (CABECERA FIXED & BLUR) -->
+  <header class="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-[#030712]/70 backdrop-blur-md transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <!-- Isotipo / Logotipo -->
+      <a href="#hero" class="flex items-center space-x-3 group">
+        <div class="relative w-10 h-10 flex items-center justify-center rounded-lg bg-gradient-to-br from-chrono-gold to-chrono-violet p-[1px] transition-transform duration-300 group-hover:scale-105">
+          <div class="w-full h-full bg-[#030712] rounded-[7px] flex items-center justify-center">
+            <!-- Icono de reloj de arena y engranaje fusionados en SVG -->
+            <svg class="w-5 h-5 text-chrono-gold group-hover:text-chrono-violet transition-colors duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+        </div>
+        <span class="font-space text-2xl font-bold tracking-wider text-white">CHRONOS</span>
+      </a>
+
+      <!-- Navegación Escritorio -->
+      <nav class="hidden md:flex items-center space-x-8">
+        <a href="#hero" class="text-sm font-medium tracking-wide text-slate-300 hover:text-chrono-gold transition-colors duration-300">Inicio</a>
+        <a href="#nosotros" class="text-sm font-medium tracking-wide text-slate-300 hover:text-chrono-gold transition-colors duration-300">Seguridad</a>
+        <a href="#servicios" class="text-sm font-medium tracking-wide text-slate-300 hover:text-chrono-gold transition-colors duration-300">Destinos</a>
+        <a href="#testimonios" class="text-sm font-medium tracking-wide text-slate-300 hover:text-chrono-gold transition-colors duration-300">Experiencias</a>
+        <a href="#contacto" class="text-sm font-medium tracking-wide text-slate-300 hover:text-chrono-gold transition-colors duration-300">Reservar</a>
+      </nav>
+
+      <!-- Botón de acción rápida -->
+      <div class="hidden md:block">
+        <a href="#contacto" class="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-xs font-semibold tracking-wider text-white uppercase rounded-md group bg-gradient-to-br from-chrono-gold to-chrono-violet hover:text-white focus:ring-2 focus:outline-none focus:ring-chrono-gold transition-all duration-300 shadow-lg shadow-chrono-violet/10">
+          <span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-chrono-bg rounded-md group-hover:bg-opacity-0">
+            Iniciar Aventura
+          </span>
+        </a>
+      </div>
+
+      <!-- Botón Menú Móvil -->
+      <button id="mobile-menu-btn" class="md:hidden text-slate-300 hover:text-chrono-gold focus:outline-none transition-colors" aria-label="Abrir menú">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú Móvil Desplegable -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-white/5 bg-[#030712]/95 backdrop-blur-lg px-6 py-6 space-y-4 shadow-2xl transition-all duration-300">
+      <a href="#hero" class="block text-base font-medium text-slate-300 hover:text-chrono-gold py-2 transition-colors">Inicio</a>
+      <a href="#nosotros" class="block text-base font-medium text-slate-300 hover:text-chrono-gold py-2 transition-colors">Seguridad</a>
+      <a href="#servicios" class="block text-base font-medium text-slate-300 hover:text-chrono-gold py-2 transition-colors">Destinos</a>
+      <a href="#testimonios" class="block text-base font-medium text-slate-300 hover:text-chrono-gold py-2 transition-colors">Experiencias</a>
+      <a href="#contacto" class="block text-base font-medium text-slate-300 hover:text-chrono-gold py-2 transition-colors">Reservar</a>
+      <a href="#contacto" class="block w-full text-center py-3 bg-gradient-to-r from-chrono-gold to-chrono-violet text-white font-semibold rounded-md shadow-md text-sm uppercase tracking-wider">
+        Iniciar Aventura
+      </a>
+    </div>
+  </header>
+
+  <!-- 2. HERO SECTION -->
+  <section id="hero" class="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden z-10">
+    <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <!-- Contenido de Texto -->
+      <div class="lg:col-span-7 flex flex-col items-start space-y-8 text-left">
+        <!-- Tagline superior -->
+        <span class="inline-flex items-center space-x-2 bg-gradient-to-r from-chrono-violet/20 to-chrono-gold/20 border border-chrono-gold/30 px-4 py-1.5 rounded-full text-xs font-semibold text-chrono-gold tracking-widest uppercase">
+          <span class="w-1.5 h-1.5 rounded-full bg-chrono-gold animate-pulse"></span>
+          <span>El Multiverso a tu alcance</span>
+        </span>
+
+        <!-- Título Masivo H1 -->
+        <h1 class="font-space text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight text-white leading-[1.1]">
+          El tiempo ya no es <br class="hidden sm:inline">
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-chrono-gold via-chrono-violet to-chrono-cyan">
+            un límite.
+          </span><br>
+          Es tu próximo destino.
+        </h1>
+
+        <!-- Subtítulo -->
+        <p class="max-w-xl text-lg sm:text-xl text-slate-400 font-light leading-relaxed">
+          Chronos redefine el concepto de exploración. Viaja al pasado con el protocolo de seguridad más riguroso del multiverso. Sé testigo de los momentos que cambiaron el rumbo de la humanidad.
+        </p>
+
+        <!-- CTAs -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-4 sm:space-y-0 sm:space-x-5 w-full sm:w-auto">
+          <a href="#servicios" class="px-8 py-4 bg-gradient-to-r from-chrono-gold to-chrono-violet text-white font-semibold rounded-lg text-center shadow-lg hover:shadow-chrono-violet/30 hover:scale-[1.03] transition-all duration-300 tracking-wide">
+            Ver Destinos Temporales
+          </a>
+          <a href="#nosotros" class="px-8 py-4 border border-slate-700 text-slate-300 font-medium rounded-lg text-center hover:bg-white/5 hover:text-white hover:border-chrono-gold transition-all duration-300 tracking-wide">
+            Descubrir el Protocolo
+          </a>
+        </div>
+
+        <!-- Indicador de Datos Ficticios de la Agencia -->
+        <div class="grid grid-cols-3 gap-6 pt-6 border-t border-white/5 w-full">
+          <div>
+            <p class="font-space text-2xl sm:text-3xl font-bold text-white tracking-wide">12,400+</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Líneas temporales seguras</p>
+          </div>
+          <div>
+            <p class="font-space text-2xl sm:text-3xl font-bold text-white tracking-wide">100%</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Tasa de retorno intacto</p>
+          </div>
+          <div>
+            <p class="font-space text-2xl sm:text-3xl font-bold text-white tracking-wide">184</p>
+            <p class="text-xs text-slate-500 uppercase tracking-widest mt-1">Momentos históricos</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Composición Visual Interactiva (Lado derecho) -->
+      <div class="lg:col-span-5 relative w-full aspect-square flex items-center justify-center">
+        <!-- Círculo de engranajes temporales giratorios mediante CSS -->
+        <div class="absolute inset-0 rounded-full border border-white/5 flex items-center justify-center animate-spin-slow">
+          <div class="w-[90%] h-[90%] rounded-full border border-chrono-violet/10 border-dashed"></div>
+        </div>
+        <div class="absolute w-[80%] h-[80%] rounded-full bg-gradient-to-br from-chrono-violet/15 to-chrono-gold/5 filter blur-3xl opacity-60"></div>
+        
+        <!-- Elemento central: Agujero de gusano / Portal -->
+        <div class="relative w-64 h-64 sm:w-80 sm:h-80 rounded-full bg-slate-900 border-2 border-chrono-gold/30 shadow-glow-violet overflow-hidden flex items-center justify-center">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-chrono-violet/40 via-chrono-bg to-chrono-bg animate-pulse-slow"></div>
+          <!-- Espiral interna estilizada -->
+          <svg class="w-48 h-48 text-chrono-cyan/30 animate-spin" style="animation-duration: 20s;" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M50 10C27.9086 10 10 27.9086 10 50C10 72.0914 27.9086 90 50 90C72.0914 90 90 72.0914 90 50" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-dasharray="8 8"/>
+            <path d="M50 20C33.4315 20 20 33.4315 20 50C20 66.5685 33.4315 80 50 80" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-dasharray="6 6"/>
+            <circle cx="50" cy="50" r="10" fill="currentColor" class="text-chrono-gold/40 animate-ping" />
+          </svg>
+          <!-- Indicador Holográfico -->
+          <div class="absolute inset-x-0 bottom-4 text-center">
+            <span class="font-space text-xs tracking-[0.25em] text-chrono-gold font-bold uppercase animate-pulse">
+              Portal Temporal Activo
+            </span>
+          </div>
+        </div>
+
+        <!-- Elementos de interfaz flotantes (Tarjetas de datos flotantes) -->
+        <div class="absolute top-10 right-4 glass-card px-4 py-3 rounded-lg flex items-center space-x-3 shadow-glow-gold/10 hover:scale-105 transition-transform duration-300">
+          <div class="w-3 h-3 rounded-full bg-chrono-gold animate-ping"></div>
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Destino Actual</p>
+            <p class="text-xs font-semibold text-white">Atenas, 432 A.C.</p>
+          </div>
+        </div>
+
+        <div class="absolute bottom-10 left-4 glass-card px-4 py-3 rounded-lg flex items-center space-x-3 shadow-glow-violet/10 hover:scale-105 transition-transform duration-300">
+          <div class="w-3 h-3 rounded-full bg-chrono-cyan"></div>
+          <div>
+            <p class="text-[10px] text-slate-400 uppercase tracking-wider">Desviación de Paradoja</p>
+            <p class="text-xs font-semibold text-white">0.0000% (Estable)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. SOBRE NOSOTROS & PROTOCOLO DE SEGURIDAD -->
+  <section id="nosotros" class="relative py-24 z-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="font-space text-xs font-bold tracking-[0.3em] text-chrono-gold uppercase">Seguridad Multidimensional</h2>
+        <p class="font-space text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Protocolo Paradoja Cero
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-chrono-gold to-chrono-violet mx-auto mt-4 rounded-full"></div>
+        <p class="text-slate-400 text-base sm:text-lg font-light leading-relaxed pt-2">
+          Viajar al pasado requiere más que tecnología avanzada; demanda un compromiso absoluto con la preservación histórica. En Chronos velamos por la estabilidad del mañana resguardando el ayer.
+        </p>
+      </div>
+
+      <!-- Grid de Características y Protocolos -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Tarjeta de Protocolo 1 -->
+        <div class="glass-card p-8 rounded-xl flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+          <div class="space-y-6">
+            <div class="w-12 h-12 rounded-lg bg-chrono-violet/10 border border-chrono-violet/30 flex items-center justify-center text-chrono-violet">
+              <!-- Icono Escudo Cuántico -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              </svg>
+            </div>
+            <h3 class="font-space text-xl font-bold text-white">Escudo Cuántico de Invisibilidad</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Nuestra tecnología de camuflaje de fase sincroniza tu espectro electromagnético con la luz ambiental de la época. Observa los eventos históricos de forma presencial sin alterar la percepción de los nativos ni dejar rastro tecnológico.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-chrono-gold">
+            <span>Modulo Activo</span>
+            <span class="text-chrono-cyan">Clase Alpha</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Protocolo 2 -->
+        <div class="glass-card p-8 rounded-xl flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+          <div class="space-y-6">
+            <div class="w-12 h-12 rounded-lg bg-chrono-gold/10 border border-chrono-gold/30 flex items-center justify-center text-chrono-gold">
+              <!-- Icono Anclaje Temporal -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+              </svg>
+            </div>
+            <h3 class="font-space text-xl font-bold text-white">Retorno Cronológico Forzado</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Cada viajero posee un bio-dispositivo con un anclaje entrelazado cuánticamente con nuestro nodo del año actual. Ante cualquier anomalía, peligro físico o alteración de la constante temporal, el retorno al presente se activa automáticamente en 0.2 milisegundos.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-chrono-gold">
+            <span>Seguridad Vital</span>
+            <span class="text-chrono-cyan">Automático</span>
+          </div>
+        </div>
+
+        <!-- Tarjeta de Protocolo 3 -->
+        <div class="glass-card p-8 rounded-xl flex flex-col justify-between hover:scale-[1.02] transition-all duration-300">
+          <div class="space-y-6">
+            <div class="w-12 h-12 rounded-lg bg-chrono-cyan/10 border border-chrono-cyan/30 flex items-center justify-center text-chrono-cyan">
+              <!-- Icono Inductor Lingüístico -->
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 11.37 7.363 16.5 3 19" />
+              </svg>
+            </div>
+            <h3 class="font-space text-xl font-bold text-white">Inducción Sociocultural y Lingüística</h3>
+            <p class="text-slate-400 text-sm leading-relaxed">
+              Mediante neuro-estimulación no invasiva previa al viaje, el explorador asimila la jerga dialectal, costumbres urbanas, códigos de vestimenta y modales de la era de destino en solo 3 horas. Te integrarás de forma natural y fluida en cualquier civilización del pasado.
+            </p>
+          </div>
+          <div class="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs font-semibold uppercase tracking-wider text-chrono-gold">
+            <span>Preparación</span>
+            <span class="text-chrono-cyan">Fisiológica</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. SERVICIOS PRINCIPALES (DESTINOS DESTACADOS) -->
+  <section id="servicios" class="relative py-24 z-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="font-space text-xs font-bold tracking-[0.3em] text-chrono-gold uppercase">Experiencias Exclusivas</h2>
+        <p class="font-space text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Destinos Temporales Destacados
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-chrono-gold to-chrono-violet mx-auto mt-4 rounded-full"></div>
+        <p class="text-slate-400 text-base sm:text-lg font-light leading-relaxed pt-2">
+          Selecciona tu punto de desembarco temporal. Cada viaje ha sido configurado meticulosamente por historiadores, lingüistas y físicos cuánticos.
+        </p>
+      </div>
+
+      <!-- Grid de Tarjetas (Mínimo 3 columnas) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Destino 1: Antigua Roma -->
+        <div class="group relative flex flex-col justify-between rounded-2xl bg-[#090e18] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-chrono-gold/30 hover:shadow-glow-gold/10">
+          <!-- Decoración superior (gradiente) -->
+          <div class="w-full h-48 bg-gradient-to-br from-red-950 via-[#090e18] to-[#090e18] relative flex items-center justify-center overflow-hidden">
+            <!-- Patrón romano o sci-fi en vector SVG de fondo -->
+            <svg class="absolute inset-0 w-full h-full text-red-900/10" viewBox="0 0 100 100" fill="none">
+              <circle cx="50" cy="50" r="40" stroke="currentColor" stroke-width="1"/>
+              <path d="M50 0 V100 M0 50 H100" stroke="currentColor" stroke-width="0.5"/>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090e18] to-transparent"></div>
+            <!-- Época destacada -->
+            <div class="absolute top-4 left-4 bg-red-950/70 border border-red-500/30 text-red-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
+              Año 80 D.C.
+            </div>
+            <!-- Símbolo del Coliseo/Roma -->
+            <div class="z-10 text-center">
+              <span class="font-space text-5xl tracking-widest text-red-500/20 font-bold">SPQR</span>
+            </div>
+          </div>
+
+          <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <h3 class="font-space text-2xl font-bold text-white group-hover:text-chrono-gold transition-colors duration-300">
+                La Roma Imperial y el Coliseo
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Asiste a la gran inauguración del Coliseo Romano como un patricio distinguido de la corte imperial del emperador Tito. Vive de primera mano los juegos de combate y banquetes imperiales.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Inversión Temporal</p>
+                <p class="font-space text-lg font-bold text-white">
+                  $12,500 <span class="text-xs text-chrono-gold">USD</span>
+                </p>
+              </div>
+              <a href="#contacto" class="p-3 bg-white/5 hover:bg-chrono-gold text-white hover:text-[#030712] rounded-lg transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destino 2: Renacimiento Italiano -->
+        <div class="group relative flex flex-col justify-between rounded-2xl bg-[#090e18] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-chrono-violet/30 hover:shadow-glow-violet/10">
+          
+          <!-- Decoración superior (gradiente) -->
+          <div class="w-full h-48 bg-gradient-to-br from-violet-950 via-[#090e18] to-[#090e18] relative flex items-center justify-center overflow-hidden">
+            <svg class="absolute inset-0 w-full h-full text-violet-900/10" viewBox="0 0 100 100" fill="none">
+              <polygon points="50,10 90,90 10,90" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090e18] to-transparent"></div>
+            <!-- Época destacada -->
+            <div class="absolute top-4 left-4 bg-violet-950/70 border border-violet-500/30 text-violet-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
+              Año 1503 D.C.
+            </div>
+            <!-- Símbolo del Arte/Renacimiento -->
+            <div class="z-10 text-center">
+              <span class="font-space text-5xl tracking-widest text-violet-500/20 font-bold">DA VINCI</span>
+            </div>
+          </div>
+
+          <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <h3 class="font-space text-2xl font-bold text-white group-hover:text-chrono-gold transition-colors duration-300">
+                Florencia y el Renacimiento
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Ingresa al taller de Leonardo da Vinci en su apogeo florentino. Observa la creación de obras maestras eternas y dialoga con el genio polímata bajo una coartada de noble mecenas extranjero.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Inversión Temporal</p>
+                <p class="font-space text-lg font-bold text-white">
+                  $18,000 <span class="text-xs text-chrono-gold">USD</span>
+                </p>
+              </div>
+              <a href="#contacto" class="p-3 bg-white/5 hover:bg-chrono-gold text-white hover:text-[#030712] rounded-lg transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Destino 3: Conciertos Siglo XX -->
+        <div class="group relative flex flex-col justify-between rounded-2xl bg-[#090e18] border border-white/5 overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:border-chrono-cyan/30 hover:shadow-glow-cyan/10">
+          
+          <!-- Decoración superior (gradiente) -->
+          <div class="w-full h-48 bg-gradient-to-br from-cyan-950 via-[#090e18] to-[#090e18] relative flex items-center justify-center overflow-hidden">
+            <svg class="absolute inset-0 w-full h-full text-cyan-900/10" viewBox="0 0 100 100" fill="none">
+              <path d="M10 50 Q 25 25, 50 50 T 90 50" stroke="currentColor" stroke-width="1"/>
+            </svg>
+            <div class="absolute inset-0 bg-gradient-to-t from-[#090e18] to-transparent"></div>
+            <!-- Época destacada -->
+            <div class="absolute top-4 left-4 bg-cyan-950/70 border border-cyan-500/30 text-cyan-400 text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded">
+              Año 1969 D.C.
+            </div>
+            <!-- Símbolo de Woodstock -->
+            <div class="z-10 text-center">
+              <span class="font-space text-5xl tracking-widest text-cyan-500/20 font-bold">ROCK</span>
+            </div>
+          </div>
+
+          <div class="p-8 flex-1 flex flex-col justify-between space-y-6">
+            <div class="space-y-3">
+              <h3 class="font-space text-2xl font-bold text-white group-hover:text-chrono-gold transition-colors duration-300">
+                Hitos Musicales del Siglo XX
+              </h3>
+              <p class="text-slate-400 text-sm leading-relaxed">
+                Mézclate con la multitud en el legendario festival de Woodstock en 1969 o asiste al icónico concierto de Queen en Live Aid en 1985 con pases VIP de zona preferencial perfectamente mimetizados.
+              </p>
+            </div>
+            
+            <div class="pt-6 border-t border-white/5 flex items-center justify-between">
+              <div>
+                <p class="text-[10px] text-slate-500 uppercase tracking-widest">Inversión Temporal</p>
+                <p class="font-space text-lg font-bold text-white">
+                  $7,500 <span class="text-xs text-chrono-gold">USD</span>
+                </p>
+              </div>
+              <a href="#contacto" class="p-3 bg-white/5 hover:bg-chrono-gold text-white hover:text-[#030712] rounded-lg transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. TESTIMONIOS -->
+  <section id="testimonios" class="relative py-24 z-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <!-- Encabezado de la Sección -->
+      <div class="text-center max-w-3xl mx-auto mb-20 space-y-4">
+        <h2 class="font-space text-xs font-bold tracking-[0.3em] text-chrono-gold uppercase">Voces del Pasado</h2>
+        <p class="font-space text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+          Testimonios de Exploradores
+        </p>
+        <div class="w-20 h-1 bg-gradient-to-r from-chrono-gold to-chrono-violet mx-auto mt-4 rounded-full"></div>
+        <p class="text-slate-400 text-base sm:text-lg font-light leading-relaxed pt-2">
+          La verdadera grandeza de Chronos se mide a través del asombro y la nostalgia de quienes han visto la historia con sus propios ojos.
+        </p>
+      </div>
+
+      <!-- Cuadrícula de Testimonios -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- Testimonio 1 -->
+        <div class="glass-card p-8 rounded-xl space-y-6 relative hover:scale-[1.01] transition-transform duration-300">
+          <!-- Icono de comillas decorativo -->
+          <div class="absolute top-6 right-8 text-chrono-violet/20">
+            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.85h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.85h3.999v10h-10z" />
+            </svg>
+          </div>
+          
+          <p class="text-slate-300 text-base italic relative z-10 leading-relaxed font-light">
+            "Hablar de las obras maestras de Florencia es una cosa, pero sentarse en el taller de Da Vinci mientras trazaba el boceto de la Mona Lisa es algo que cambió mi vida para siempre. El protocolo de ocultación fue impecable; los aprendices del taller me trataron como un noble mercader italiano más. Sin duda, volveré a reservar."
+          </p>
+
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-chrono-gold to-chrono-violet p-[1px]">
+              <div class="w-full h-full bg-chrono-bg rounded-full flex items-center justify-center font-bold text-white text-sm">
+                AM
+              </div>
+            </div>
+            <div>
+              <h4 class="font-space font-bold text-white text-base">Alejandra Mendoza</h4>
+              <p class="text-xs text-chrono-gold uppercase tracking-wider">Viajera temporal a Florencia (1503)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Testimonio 2 -->
+        <div class="glass-card p-8 rounded-xl space-y-6 relative hover:scale-[1.01] transition-transform duration-300">
+          <!-- Icono de comillas decorativo -->
+          <div class="absolute top-6 right-8 text-chrono-violet/20">
+            <svg class="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.85h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.85h3.999v10h-10z" />
+            </svg>
+          </div>
+          
+          <p class="text-slate-300 text-base italic relative z-10 leading-relaxed font-light">
+            "Siempre soñé con la música de finales del siglo XX. El viaje a Woodstock 1969 superó todas mis expectativas. Estar en medio del lodo sintiendo el rugir de la guitarra de Jimi Hendrix es algo indescriptible. Agradezco especialmente el protocolo de traducción neurológica; me sentí parte de la contracultura de inmediato."
+          </p>
+
+          <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-chrono-gold to-chrono-violet p-[1px]">
+              <div class="w-full h-full bg-chrono-bg rounded-full flex items-center justify-center font-bold text-white text-sm">
+                RC
+              </div>
+            </div>
+            <div>
+              <h4 class="font-space font-bold text-white text-base">Ricardo Calderón</h4>
+              <p class="text-xs text-chrono-gold uppercase tracking-wider">Viajera temporal a Woodstock (1969)</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. FORMULARIO DE CONTACTO -->
+  <section id="contacto" class="relative py-24 z-10 border-t border-white/5">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center max-w-6xl mx-auto">
+        
+        <!-- Bloque Informativo del Formulario -->
+        <div class="lg:col-span-5 space-y-6">
+          <span class="text-xs font-bold tracking-[0.25em] text-chrono-gold uppercase">Inicia el Viaje</span>
+          <h2 class="font-space text-3xl sm:text-4xl font-bold text-white leading-tight">
+            ¿Cuál es tu época de destino?
+          </h2>
+          <p class="text-slate-400 font-light leading-relaxed">
+            Completa la solicitud de evaluación cronológica. Dado el alto estándar de seguridad temporal, nuestro comité evalúa cada perfil psicológico y ético de los postulantes antes de autorizar el despegue temporal.
+          </p>
+          
+          <!-- Lista de requisitos rápidos -->
+          <div class="space-y-4 pt-4">
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-chrono-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-slate-300">Examen médico y aptitud cronológica incluido</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-chrono-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-slate-300">Monitoreo continuo por Inteligencia Artificial</span>
+            </div>
+            <div class="flex items-center space-x-3">
+              <svg class="w-5 h-5 text-chrono-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-slate-300">Certificación ética Paradoja Cero obligatoria</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario Integrado Moderno -->
+        <div class="lg:col-span-7">
+          <form class="glass-card p-8 sm:p-10 rounded-2xl space-y-6 shadow-glow-violet/5" onsubmit="event.preventDefault(); alert('Solicitud de evaluación temporal recibida. El Consejo de Chronos analizará su línea cuántica.');">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <!-- Nombre -->
+              <div class="space-y-2">
+                <label for="nombre" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Nombre Completo</label>
+                <input type="text" id="nombre" required placeholder="p. ej. Esteban Sforza" class="w-full bg-[#030712]/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-chrono-violet focus:border-transparent transition-all duration-300">
+              </div>
+
+              <!-- Email -->
+              <div class="space-y-2">
+                <label for="email" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Correo Electrónico</label>
+                <input type="email" id="email" required placeholder="p. ej. esteban@chronos.vip" class="w-full bg-[#030712]/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-chrono-violet focus:border-transparent transition-all duration-300">
+              </div>
+            </div>
+
+            <!-- Selección de Destino Temporal -->
+            <div class="space-y-2">
+              <label for="destino" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Destino Temporal de Interés</label>
+              <select id="destino" required class="w-full bg-[#030712]/80 border border-slate-700 rounded-lg px-4 py-3 text-slate-300 focus:outline-none focus:ring-2 focus:ring-chrono-violet focus:border-transparent transition-all duration-300">
+                <option value="" disabled selected>Selecciona una época histórica</option>
+                <option value="roma">Imperio Romano (Coliseo - Año 80 d.C.)</option>
+                <option value="renacimiento">Renacimiento Italiano (Florencia - Año 1503)</option>
+                <option value="woodstock">Madurez del Rock (Woodstock - Año 1969)</option>
+                <option value="otro">Personalizado / Época a proponer</option>
+              </select>
+            </div>
+
+            <!-- Área de Mensaje -->
+            <div class="space-y-2">
+              <label for="mensaje" class="text-xs font-semibold uppercase tracking-wider text-slate-400">Motivación y Declaración Ética</label>
+              <textarea id="mensaje" rows="4" required placeholder="Cuéntanos por qué deseas realizar esta travesía temporal y tu compromiso de respetar la línea de tiempo original..." class="w-full bg-[#030712]/50 border border-slate-700 rounded-lg px-4 py-3 text-white placeholder-slate-600 focus:outline-none focus:ring-2 focus:ring-chrono-violet focus:border-transparent transition-all duration-300"></textarea>
+            </div>
+
+            <!-- Botón de Envío Destacado -->
+            <button type="submit" class="w-full py-4 bg-gradient-to-r from-chrono-gold to-chrono-violet text-[#030712] hover:text-white font-bold rounded-lg text-center shadow-lg hover:shadow-chrono-gold/20 hover:scale-[1.01] transition-all duration-300 uppercase tracking-widest text-xs">
+              Solicitar Evaluación Cuántica
+            </button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FOOTER (PIE DE PÁGINA) -->
+  <footer class="relative z-10 border-t border-white/5 bg-[#010307] py-16">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-12 pb-12 border-b border-white/5">
+        
+        <!-- Bloque de Marca -->
+        <div class="space-y-4 md:col-span-2">
+          <div class="flex items-center space-x-3">
+            <div class="w-8 h-8 flex items-center justify-center rounded-lg bg-gradient-to-br from-chrono-gold to-chrono-violet p-[1px]">
+              <div class="w-full h-full bg-[#030712] rounded-[7px] flex items-center justify-center">
+                <svg class="w-4 h-4 text-chrono-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+            <span class="font-space text-xl font-bold tracking-wider text-white">CHRONOS</span>
+          </div>
+          <p class="text-slate-500 text-sm max-w-sm">
+            La primera agencia de viajes temporales de clase premium certificada bajo los estrictos estándares de la Alianza Intertemporal.
+          </p>
+        </div>
+
+        <!-- Enlaces Secundarios -->
+        <div class="space-y-4">
+          <h4 class="font-space text-xs font-bold text-white uppercase tracking-wider">Enlaces Corporativos</h4>
+          <ul class="space-y-2 text-sm text-slate-500">
+            <li><a href="#hero" class="hover:text-chrono-gold transition-colors">Inicio</a></li>
+            <li><a href="#nosotros" class="hover:text-chrono-gold transition-colors">Seguridad de Línea</a></li>
+            <li><a href="#servicios" class="hover:text-chrono-gold transition-colors">Destinos Autorizados</a></li>
+            <li><a href="#contacto" class="hover:text-chrono-gold transition-colors">Proceso de Selección</a></li>
+          </ul>
+        </div>
+
+        <!-- Botones Redes Sociales y Legal -->
+        <div class="space-y-4">
+          <h4 class="font-space text-xs font-bold text-white uppercase tracking-wider">Conexión Temporal</h4>
+          <!-- Redes Sociales Simuladas -->
+          <div class="flex space-x-3">
+            <!-- Icono Twitter / X -->
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-chrono-gold hover:bg-white/10 transition-all duration-300" aria-label="Twitter">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+              </svg>
+            </a>
+            <!-- Icono Instagram -->
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-chrono-gold hover:bg-white/10 transition-all duration-300" aria-label="Instagram">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5" stroke="currentColor" stroke-width="2"/>
+                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z" stroke="currentColor" stroke-width="2"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+            <!-- Icono Discord / Multiverso -->
+            <a href="#" class="w-10 h-10 rounded-lg bg-white/5 flex items-center justify-center text-slate-400 hover:text-chrono-gold hover:bg-white/10 transition-all duration-300" aria-label="Discord">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028 14.09 14.09 0 001.226-1.994.076.076 0 00-.041-.106 13.107 13.107 0 01-1.873-.894.077.077 0 01-.008-.128c.126-.093.252-.19.372-.287a.075.075 0 01.077-.011 13.99 13.99 0 0010.194 0 .075.075 0 01.078.012c.12.097.246.194.373.287a.077.077 0 01-.006.127 12.299 12.299 0 01-1.874.894.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.156 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.156-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.156 2.418z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Derechos de Autor -->
+      <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-600">
+        <p>&copy; 2026 Chronos Inc. Todos los derechos temporales reservados.</p>
+        <div class="flex space-x-6 mt-4 sm:mt-0">
+          <a href="#" class="hover:text-chrono-gold transition-colors">Política de Paradojas</a>
+          <a href="#" class="hover:text-chrono-gold transition-colors">Términos del Multiverso</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- Scripts para comportamiento interactivo (Menú móvil y Nav highlighting) -->
+  <script>
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Alternar icono de hamburguesa a cruz
+      if (mobileMenu.classList.contains('hidden')) {
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      } else {
+        menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+      }
+    });
+
+    // Cerrar menú móvil al hacer click en un enlace
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+        menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+      });
+    });
+
+    // Manejo simple de resaltado de navegación activa según scroll
+    const sections = document.querySelectorAll('section');
+    const navLinks = document.querySelectorAll('header nav a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (pageYOffset >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('nav-active');
+        if (link.getAttribute('href').slice(1) === current) {
+          link.classList.add('nav-active');
+        }
+      });
+    });
+  </script>
+</body>
+</html>
